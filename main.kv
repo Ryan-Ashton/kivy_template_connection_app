@@ -1,112 +1,144 @@
-# WindowManager:
-#     InputPage:
-#     OutputPage:
+<InputPage>:
 
-# <InputPage>:
-#     name: "main"
+    size: root.width, root.height
     
 
-<MyBoxLayout>:
-    orientation: 'vertical'
-    padding: 1
-    
+    MDBoxLayout:
+        orientation: 'vertical'      
+
+        MDToolbar:
+            id: toolbar
+            title: "Salesforce Customer Duplicate Finder"
+            elevation: 10
+            pos_hint: {'center_x': .5}
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDLabel:
+                text: "Enter your Salesforce credentials and a Country (e.g. 'TH' for Thailand)"
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDCard:
+                padding: 10
+                size_hint: .9, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                border_radius: 20
+                radius: [15]
+
+                MDTextField:
+                    hint_text: "Enter your Salesforce Username"
+                    helper_text: "This will disappear when you click off"
+                    helper_text_mode: "on_focus"
+                    pos_hint: {'center_x': .5}
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDCard:
+                padding: 10
+                size_hint: .9, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                border_radius: 20
+                radius: [15]
+
+                MDTextField:
+                    hint_text: "Enter your Salesforce Password"
+                    helper_text: "This will disappear when you click off"
+                    helper_text_mode: "on_focus"
+                    pos_hint: {'center_x': .5}
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDCard:
+                padding: 10
+                size_hint: .9, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                border_radius: 20
+                radius: [15]
 
 
-    MDToolbar:
-        id: toolbar
-        title: "Salesforce Customer Duplicate Finder"
-        elevation: 10
-        pos_hint: {'center_x': .5}
+                MDTextField:
+                    hint_text: "Enter your Salesforce Security Token"
+                    helper_text: "This will disappear when you click off"
+                    helper_text_mode: "on_focus"
+                    pos_hint: {'center_x': .5}
+
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDCard:
+                padding: 10
+                size_hint: .9, None
+                pos_hint: {"center_x": .5, "center_y": .5}
+                border_radius: 20
+                radius: [15]
+
+
+                MDTextField:
+                    hint_text: "Enter Which Country (Only 1 at a time)"
+                    helper_text: "This will disappear when you click off"
+                    helper_text_mode: "on_focus"
+                    pos_hint: {'center_x': .5}
+
+        MDBoxLayout:
+
+            padding: 50
+
+            MDFillRoundFlatButton:
+                size_hint: .7, None
+                text: 'Click to Run!'
+                text_size: self.size
+                halign: 'center'
+                valign: 'center'
+                on_release:
+                    app.root.current = "output"
+
+
+
+<OutputPage>:
+    size: root.width, root.height
+
 
     MDBoxLayout:
 
-        padding: 50
-
-        MDLabel:
-            text: "Enter your Salesforce credentials and a Country (e.g. 'TH' for Thailand)"
-
-    MDBoxLayout:
-
-        padding: 50
+        padding: 100
 
         MDCard:
-            padding: 10
-            size_hint: .9, None
+            padding: 40
+            size_hint: .5, .5
             pos_hint: {"center_x": .5, "center_y": .5}
             border_radius: 20
             radius: [15]
 
-            MDTextField:
-                hint_text: "Enter your Salesforce Username"
-                helper_text: "This will disappear when you click off"
-                helper_text_mode: "on_focus"
-                pos_hint: {'center_x': .5}
+            FitImage:
+                source: "assets/waiting.jpg"
+                size_hint: 1, 1
+
+            MDLabel:
+                text: "Please wait while I process your file"
+                halign: 'center'
+                valign: 'center'
 
     MDBoxLayout:
 
-        padding: 50
-
-        MDCard:
-            padding: 10
-            size_hint: .9, None
-            pos_hint: {"center_x": .5, "center_y": .5}
-            border_radius: 20
-            radius: [15]
-
-            MDTextField:
-                hint_text: "Enter your Salesforce Password"
-                helper_text: "This will disappear when you click off"
-                helper_text_mode: "on_focus"
-                pos_hint: {'center_x': .5}
-
-    MDBoxLayout:
-
-        padding: 50
-
-        MDCard:
-            padding: 10
-            size_hint: .9, None
-            pos_hint: {"center_x": .5, "center_y": .5}
-            border_radius: 20
-            radius: [15]
-
-
-            MDTextField:
-                hint_text: "Enter your Salesforce Security Token"
-                helper_text: "This will disappear when you click off"
-                helper_text_mode: "on_focus"
-                pos_hint: {'center_x': .5}
-
-
-    MDBoxLayout:
-
-        padding: 50
-
-        MDCard:
-            padding: 10
-            size_hint: .9, None
-            pos_hint: {"center_x": .5, "center_y": .5}
-            border_radius: 20
-            radius: [15]
-
-
-            MDTextField:
-                hint_text: "Enter Which Country (Only 1 at a time)"
-                helper_text: "This will disappear when you click off"
-                helper_text_mode: "on_focus"
-                pos_hint: {'center_x': .5}
-
-    MDBoxLayout:
-
-        padding: 50
+        padding: 100
 
         MDFillRoundFlatButton:
-            size_hint: .7, None
-            text: 'Click to Run!'
-            text_size: self.size
+            size_hint: None, None
+            size: root.width / 2, root.height / 12
+            text: 'Return to Main Screen'
             halign: 'center'
             valign: 'center'
-
-
-
+            on_release:
+                app.root.current = "main"
 

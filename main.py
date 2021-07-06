@@ -1,3 +1,6 @@
+import kivy
+kivy.require('2.0.0')
+
 from kivy.core.window import Window
 Window.size = (1000, 800)
 
@@ -10,7 +13,7 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-#test
+
 
 class MyBoxLayout(MDBoxLayout):
     pass
@@ -26,7 +29,11 @@ class WindowManager(ScreenManager):
 
 class MainApp(MDApp):
     def build(self):
-        return MyBoxLayout()
+        # self.root = Builder.load_file('main.kv')
+        sm = ScreenManager()
+        sm.add_widget(InputPage(name='main'))
+        sm.add_widget(OutputPage(name='output'))
+        return sm
  
 blApp = MainApp()
  
