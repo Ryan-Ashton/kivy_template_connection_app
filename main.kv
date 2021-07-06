@@ -108,37 +108,43 @@
 <OutputPage>:
     size: root.width, root.height
 
-
     MDBoxLayout:
+        orientation: 'vertical'
+        padding: 10
 
-        padding: 100
+        MDBoxLayout:
+            orientation: 'horizontal'
+            padding: 100
 
-        MDCard:
-            padding: 40
-            size_hint: .5, .5
-            pos_hint: {"center_x": .5, "center_y": .5}
-            border_radius: 20
-            radius: [15]
+            MDCard:
+                padding: 40
+                size_hint: 2, 2
+                pos_hint: {"center_x": .5, "center_y": .5}
+                border_radius: 20
+                radius: [15]
 
-            FitImage:
-                source: "assets/waiting.jpg"
-                size_hint: 1, 1
+                FitImage:
+                    source: "assets/waiting.jpg"
+                    size_hint: 1, 1
 
-            MDLabel:
-                text: "Please wait while I process your file"
-                halign: 'center'
-                valign: 'center'
+                MDLabel:
+                    text: "Please wait while I process your file"
+                    halign: 'center'
+                    valign: 'center'
 
-    MDBoxLayout:
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 100
 
-        padding: 100
 
         MDFillRoundFlatButton:
             size_hint: None, None
-            size: root.width / 2, root.height / 12
-            text: 'Return to Main Screen'
+            width: root.width * .9
             halign: 'center'
-            valign: 'center'
+            valign: 'top'
+            pos_hint: {"center_x": .5, "center_y": 1}
+            text: 'Return to Main Screen'
             on_release:
                 app.root.current = "main"
 
+ 
