@@ -110,15 +110,16 @@
 
     MDBoxLayout:
         orientation: 'vertical'
-        padding: 10
+        padding: 50
 
         MDBoxLayout:
             orientation: 'horizontal'
-            padding: 100
+            padding: 50
 
             MDCard:
-                padding: 40
+                padding: 20
                 size_hint: 2, 2
+
                 pos_hint: {"center_x": .5, "center_y": .5}
                 border_radius: 20
                 radius: [15]
@@ -131,6 +132,18 @@
                     text: "Please wait while I process your file"
                     halign: 'center'
                     valign: 'center'
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 100
+
+            ProgressBar:
+                id: progress
+                value: .25
+                min: 0
+                max: 1
+                pos_hint: {"center_x": .5, "center_y": 0}
+
 
         MDBoxLayout:
             orientation: 'vertical'
